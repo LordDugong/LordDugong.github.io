@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Designer Portfolio</title>
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --primary: #22c55e;
+            --secondary: #38bdf8;
+            --text: #e2e8f0;
+            --card: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        header {
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: var(--text);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            padding: 80px 10%;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+        }
+
+        .hero p {
+            margin-top: 20px;
+            max-width: 600px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--primary);
+            color: black;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .section {
+            padding: 60px 10%;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>Game Designer</h2>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Designing Engaging Game Experiences</h1>
+    <p>
+        I specialise in gameplay systems, player feel, and interactive design. My work focuses on creating responsive, polished experiences grounded in player intention and feedback.
+    </p>
+    <a href="#projects" class="btn">View Projects</a>
+</section>
+
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <p>
+        Game designer with a focus on mechanics, player feedback, and systems design. Experience in Unity, Unreal Engine, and GameMaker. Strong background in analysing game feel and player experience.
+    </p>
+</section>
+
+<section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="projects">
+        <div class="card">
+            <h3>ChronoCosmic</h3>
+            <p>Third-person shooter built in Unreal Engine focusing on time-based mechanics.</p>
+        </div>
+        <div class="card">
+            <h3>2D Action Prototype</h3>
+            <p>GameMaker project exploring camera systems and responsive movement.</p>
+        </div>
+        <div class="card">
+            <h3>Laser Combat System</h3>
+            <p>Unity-based aiming and shooting system using Cinemachine.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Email: your.email@example.com</p>
+    <p>GitHub: github.com/yourusername</p>
+</section>
+
+<footer>
+    <p>© 2026 Game Designer Portfolio</p>
+</footer>
+
+</body>
+</html>
