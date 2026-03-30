@@ -7,18 +7,22 @@
 
 <style>
 :root {
-    --bg: #0b0f1a;
-    --panel: #111827;
-    --accent: #00ff9c;
-    --text: #d1d5db;
-    --tab: #1f2937;
+    --bg: #008080;
+    --window-bg: #c0c0c0;
+    --panel: #ffffff;
+    --text: #000000;
+    --tab: #d4d0c8;
+    --tab-active: #000080;
+    --tab-border-light: #ffffff;
+    --tab-border-dark: #7f7f7f;
+    --border: #000000;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Courier New", monospace;
+    font-family: "Tahoma", "Arial", sans-serif;
 }
 
 body {
@@ -33,66 +37,77 @@ body {
 /* Window */
 .window {
     width: min(860px, 94%);
-    background: var(--panel);
-    border: 2px solid var(--accent);
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0,255,156,0.16);
+    background: var(--window-bg);
+    border: 2px solid var(--border);
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.12);
     overflow: hidden;
 }
 
 /* Tabs */
 .tabs {
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    background: var(--tab);
-    border-bottom: 2px solid var(--accent);
+    justify-content: flex-start;
+    gap: 4px;
+    background: var(--window-bg);
+    border-bottom: 2px solid var(--tab-border-dark);
     padding: 10px 12px;
 }
 
 .tab {
-    padding: 8px 14px;
+    padding: 6px 12px;
     cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    background: var(--tab);
+    color: var(--text);
+    border-top: 2px solid var(--tab-border-light);
+    border-left: 2px solid var(--tab-border-light);
+    border-right: 2px solid var(--tab-border-dark);
+    border-bottom: 2px solid var(--tab-border-dark);
+    font-weight: bold;
+    letter-spacing: 0.03em;
 }
 
 .tab:hover {
-    background: rgba(0,255,156,0.08);
+    background: #e4e0d8;
 }
 
 .tab.active {
-    background: var(--panel);
-    color: var(--accent);
-    border-color: rgba(0,255,156,0.35);
+    background: var(--tab-active);
+    color: #ffffff;
+    border-top-color: #000000;
+    border-left-color: #000000;
+    border-right-color: #7f7f7f;
+    border-bottom-color: #7f7f7f;
 }
 
 /* Content */
 .content {
+    display: none;
+    background: var(--panel);
     padding: 0 30px;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-12px);
-    transition: max-height 0.45s ease, opacity 0.35s ease 0.05s, transform 0.35s ease 0.05s;
+    border-top: 2px solid #7f7f7f;
 }
 
 .content.active {
+    display: block;
     padding: 30px;
-    max-height: 1200px;
-    opacity: 1;
-    transform: translateY(0);
+}
+
+h1,
+h2,
+h3,
+p,
+a {
+    color: var(--text);
 }
 
 h1 {
-    color: var(--accent);
+    color: #000080;
     margin-bottom: 10px;
 }
 
 h2 {
     margin-bottom: 15px;
-    color: var(--accent);
+    color: #000080;
 }
 
 .projects {
@@ -102,24 +117,20 @@ h2 {
 }
 
 .card {
-    background: #020617;
+    background: #f0f0f0;
     padding: 15px;
-    border: 1px solid var(--accent);
-    transition: 0.2s;
+    border: 2px solid #7f7f7f;
 }
 
-.card:hover {
-    transform: scale(1.03);
+.card h3 {
+    margin-bottom: 8px;
+    color: #000080;
 }
 
 .link {
     display: block;
     margin-top: 10px;
-    color: var(--accent);
-    text-decoration: none;
-}
-
-.link:hover {
+    color: #0000ee;
     text-decoration: underline;
 }
 
@@ -127,7 +138,8 @@ h2 {
     text-align: center;
     padding: 10px;
     font-size: 0.8rem;
-    opacity: 0.6;
+    background: var(--window-bg);
+    border-top: 2px solid #7f7f7f;
 }
 </style>
 </head>
@@ -136,9 +148,9 @@ h2 {
 <div class="window">
 
     <div class="tabs">
-        <div class="tab" onclick="openTab('about', this)">[ ABOUT.EXE ]</div>
-        <div class="tab" onclick="openTab('projects', this)">[ PROJECT.DAT ]</div>
-        <div class="tab" onclick="openTab('links', this)">[ LINKS.SYS ]</div>
+        <div class="tab" onclick="openTab('about', this)">[ ABOUT ME ]</div>
+        <div class="tab" onclick="openTab('projects', this)">[ PROJECTS ]</div>
+        <div class="tab" onclick="openTab('links', this)">[ LINKS TREE ]</div>
     </div>
 
     <div id="about" class="content">
