@@ -142,16 +142,16 @@ body {
 
 .slide-left {
     flex: 1;
-    text-align: left;
-}
-
-.slide-right {
-    flex: 1;
     display: flex;
     justify-content: center;
 }
 
-.slide-right img {
+.slide-right {
+    flex: 1;
+    text-align: left;
+}
+
+.slide-left img {
     width: 100%;
     max-width: 300px;
     border: 2px solid var(--accent);
@@ -226,11 +226,10 @@ body {
     transform: translateX(-50%);
     display: flex;
     gap: 15px;
-    background: var(--panel);
-    padding: 15px 25px;
-    border: 2px solid var(--accent);
-    border-radius: 50px;
-    box-shadow: 0 0 20px rgba(0, 102, 204, 0.15);
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
     z-index: 100;
 }
 
@@ -291,11 +290,24 @@ body {
 <div class="carousel">
     <div class="slides" id="slides">
 
-        <!-- Slide 1: Home -->
+        <!-- Slide 1: About Me -->
+        <div class="slide">
+            <div class="slide-content slide-two-column">
+                <div class="slide-left">
+                    <img src="Assets/PersonalPage/Face.jpg" alt="Jamie Fraser">
+                </div>
+                <div class="slide-right">
+                    <h2>About Me</h2>
+                    <p>Placeholder text for about me section. This will contain information about my background, experience, and passion for game design.</p>
+                    <p>I'm dedicated to creating engaging gaming experiences through thoughtful systems design and player-focused feedback.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Home -->
         <div class="slide">
             <div class="slide-content slide-hero">
                 <h1>Jamie Fraser</h1>
-                <img class="hero-face" src="Assets/PersonalPage/Face.jpg" alt="Jamie Fraser">
                 <div class="social-links">
                     <a href="mailto:jamie.b.fraser04@gmail.com"><img src="Assets/PersonalPage/email.png" alt="Email"></a>
                     <a href="#"><img src="Assets/PersonalPage/github.png" alt="GitHub"></a>
@@ -303,20 +315,6 @@ body {
                 </div>
                 <hr class="divider">
                 <p class="intro-text">Hello, and thanks for visiting my website! My name is Jamie, and I'm a passionate game designer who finds enjoyment in finding the fun of digital experiences.</p>
-            </div>
-        </div>
-
-        <!-- Slide 2: About Me -->
-        <div class="slide">
-            <div class="slide-content slide-two-column">
-                <div class="slide-left">
-                    <h2>About Me</h2>
-                    <p>Placeholder text for about me section. This will contain information about my background, experience, and passion for game design.</p>
-                    <p>I'm dedicated to creating engaging gaming experiences through thoughtful systems design and player-focused feedback.</p>
-                </div>
-                <div class="slide-right">
-                    <img src="Assets/PersonalPage/Face.jpg" alt="Jamie Fraser">
-                </div>
             </div>
         </div>
 
@@ -370,12 +368,12 @@ body {
         <div class="slide">
             <div class="slide-content slide-two-column">
                 <div class="slide-left">
+                    <div class="media-placeholder">Video/GIF Placeholder</div>
+                </div>
+                <div class="slide-right">
                     <h2>High-Rise</h2>
                     <p>GameMaker project exploring weapon-driven movement and interpretive systems. This game focuses on innovative mechanics and dynamic player interaction.</p>
                     <p>Placeholder for video/gif will appear here once media assets are added.</p>
-                </div>
-                <div class="slide-right">
-                    <div class="media-placeholder">Video/GIF Placeholder</div>
                 </div>
             </div>
         </div>
@@ -384,12 +382,12 @@ body {
         <div class="slide">
             <div class="slide-content slide-two-column">
                 <div class="slide-left">
+                    <div class="media-placeholder">Video/GIF Placeholder</div>
+                </div>
+                <div class="slide-right">
                     <h2>Reel Rush</h2>
                     <p>Arcade-style prototype focused on pacing and feedback loops. This project emphasizes rapid gameplay and responsive mechanics.</p>
                     <p>Placeholder for video/gif will appear here once media assets are added.</p>
-                </div>
-                <div class="slide-right">
-                    <div class="media-placeholder">Video/GIF Placeholder</div>
                 </div>
             </div>
         </div>
@@ -398,12 +396,12 @@ body {
         <div class="slide">
             <div class="slide-content slide-two-column">
                 <div class="slide-left">
+                    <div class="media-placeholder">Video/GIF Placeholder</div>
+                </div>
+                <div class="slide-right">
                     <h2>Hat-Free</h2>
                     <p>Experimental platformer investigating player control abstraction. This game challenges conventional control schemes and explores new interaction possibilities.</p>
                     <p>Placeholder for video/gif will appear here once media assets are added.</p>
-                </div>
-                <div class="slide-right">
-                    <div class="media-placeholder">Video/GIF Placeholder</div>
                 </div>
             </div>
         </div>
@@ -412,12 +410,12 @@ body {
         <div class="slide">
             <div class="slide-content slide-two-column">
                 <div class="slide-left">
+                    <div class="media-placeholder">Video/GIF Placeholder</div>
+                </div>
+                <div class="slide-right">
                     <h2>Punch-In</h2>
                     <p>Combat system prototype emphasizing impact feedback and timing. This project explores the art of creating satisfying combat mechanics.</p>
                     <p>Placeholder for video/gif will appear here once media assets are added.</p>
-                </div>
-                <div class="slide-right">
-                    <div class="media-placeholder">Video/GIF Placeholder</div>
                 </div>
             </div>
         </div>
@@ -427,8 +425,8 @@ body {
 
 <!-- Bottom Navigation -->
 <div class="nav-bar" id="navBar">
-    <div class="nav-icon active" data-slide="0">H</div>
-    <div class="nav-icon" data-slide="1">A</div>
+    <div class="nav-icon" data-slide="1">H</div>
+    <div class="nav-icon" data-slide="0">A</div>
     <div class="nav-icon" data-slide="2">C</div>
     <div class="nav-icon" data-slide="3">S</div>
     <div class="nav-icon" data-slide="4">1</div>
@@ -450,16 +448,21 @@ const totalSlides = document.querySelectorAll('.slide').length;
 function goToSlide(n) {
     slides.style.transform = `translateX(-${n * 100}%)`;
     
-    navIcons.forEach(icon => icon.classList.remove('active'));
-    navIcons[n].classList.add('active');
+    navIcons.forEach(icon => {
+        icon.classList.toggle('active', Number(icon.dataset.slide) === n);
+    });
     
     currentSlide = n;
 }
 
-navIcons.forEach((icon, index) => {
+navIcons.forEach((icon) => {
     icon.addEventListener('click', () => {
-        goToSlide(index);
+        goToSlide(Number(icon.dataset.slide));
     });
+});
+
+window.addEventListener('load', () => {
+    goToSlide(1);
 });
 
 // Keyboard navigation
