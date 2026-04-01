@@ -26,11 +26,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 24px;
     background: url('Assets/PersonalPage/BackgroundImage.jpg') center/cover no-repeat;
     background-attachment: fixed;
     color: var(--text);
+    padding-bottom: 40px;
 }
 
 .hero {
@@ -90,56 +91,111 @@ body {
 
 /* Window */
 .window {
-    width: min(860px, 94%);
+    width: min(1200px, 94%);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    padding: 20px;
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.grid-card {
     background: var(--panel);
     border: 2px solid var(--accent);
     border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 102, 204, 0.12);
-    overflow: hidden;
+    padding: 25px;
+    box-shadow: 0 0 20px rgba(0, 102, 204, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Tabs */
-.tabs {
+.grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 102, 204, 0.2);
+}
+
+.grid-card h3 {
+    color: var(--accent);
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.grid-card p {
+    line-height: 1.6;
+    opacity: 0.85;
+    font-size: 0.95rem;
+}
+
+/* About card special layout */
+.about-card {
+    grid-column: span 2;
     display: flex;
-    justify-content: center;
-    gap: 8px;
-    background: var(--tab);
-    border-bottom: 2px solid var(--accent);
-    padding: 10px 12px;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    .about-card {
+        grid-column: span 1;
+        flex-direction: column;
+    }
+}
+
+.about-card img {
+    width: 180px;
+    height: 180px;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.about-card-text {
+    flex: 1;
+}
+
+/* Tabs (hidden) */
+.tabs {
+    display: none;
 }
 
 .tab {
-    padding: 8px 14px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 999px;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    display: none;
 }
 
 .tab:hover {
-    background: rgba(0, 102, 204, 0.08);
+    display: none;
 }
 
 .tab.active {
-    background: var(--panel);
-    color: var(--accent);
-    border-color: rgba(0, 102, 204, 0.35);
+    display: none;
 }
 
 /* Content */
 .content {
-    display: none;
-    padding: 0 30px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.25s ease, transform 0.25s ease;
+    display: block !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
 }
 
 .content.active {
-    display: block;
-    padding: 30px;
-    opacity: 1;
-    transform: translateY(0);
+    display: block !important;
+}
+
+/* Old Projects Grid (Hidden) */
+.projects {
+    display: none;
 }
 
 h1 {
@@ -152,21 +208,15 @@ h2 {
     color: var(--accent);
 }
 
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-}
-
 .card {
-    background: #020617;
-    padding: 15px;
-    border: 1px solid var(--accent);
-    transition: 0.2s;
+    background: transparent;
+    padding: 0;
+    border: none;
+    transition: none;
 }
 
 .card:hover {
-    transform: scale(1.03);
+    transform: none;
 }
 
 .link {
@@ -182,9 +232,11 @@ h2 {
 
 .footer {
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     font-size: 0.8rem;
     opacity: 0.6;
+    width: 100%;
+    margin-top: 30px;
 }
 </style>
 </head>
@@ -203,67 +255,81 @@ h2 {
 </div>
 
 <div class="window">
-
-    <div class="tabs">
-        <div class="tab" onclick="openTab('projects', this)">[ PROJECTS ]</div>
-        <div class="tab" onclick="openTab('skills', this)">[ SKILLS ]</div>
-        <div class="tab" onclick="openTab('career', this)">[ CAREER ]</div>
-    </div>
-
-    <div id="projects" class="content">
-        <h2>Projects</h2>
-        <div class="projects">
-
-            <div class="card">
-                <h3>High-Rise</h3>
-                <p>GameMaker project exploring weapon-driven movement and interpretive systems.</p>
-            </div>
-
-            <div class="card">
-                <h3>Reel Rush</h3>
-                <p>Arcade-style prototype focused on pacing and feedback loops.</p>
-            </div>
-
-            <div class="card">
-                <h3>Hat-Free</h3>
-                <p>Experimental platformer investigating player control abstraction.</p>
-            </div>
-
-            <div class="card">
-                <h3>Punch-In</h3>
-                <p>Combat system prototype emphasizing impact feedback and timing.</p>
-            </div>
-
+    <div class="grid-container">
+        
+        <!-- Home Card -->
+        <div class="grid-card">
+            <h3>Home</h3>
+            <p>Welcome to my portfolio. Here you'll find my projects, skills, and career highlights as a passionate game designer.</p>
         </div>
-    </div>
 
-    <div id="skills" class="content">
-        <h2>Skills</h2>
-        <div class="projects">
-            <div class="card">
-                <h3>Systems Design</h3>
-                <p>Designing feedback-rich systems that feel responsive and intuitive.</p>
-            </div>
-            <div class="card">
-                <h3>Game Feel</h3>
-                <p>Crafting tight controls, satisfying feedback, and meaningful player responses.</p>
-            </div>
-            <div class="card">
-                <h3>Player Feedback</h3>
-                <p>Balancing visual, audio, and mechanical cues across gameplay loops.</p>
-            </div>
-            <div class="card">
-                <h3>Prototyping</h3>
-                <p>Rapid experimentation in Unity, Unreal Engine, and GameMaker.</p>
+        <!-- About Me Card -->
+        <div class="grid-card about-card">
+            <img src="Assets/PersonalPage/Face.jpg" alt="Jamie Fraser">
+            <div class="about-card-text">
+                <h3>About Me</h3>
+                <p>I'm a game designer with a passion for creating engaging interactive experiences. I focus on gameplay mechanics, game feel, and player feedback to craft memorable gaming moments. When I'm not designing games, you can find me exploring new design tools and techniques.</p>
             </div>
         </div>
-    </div>
 
-    <div id="career" class="content">
-        <h2>Career</h2>
-        <p>> Industry experience in designing gameplay systems, prototyping interaction loops, and refining player experience.</p>
-        <p>> Worked with teams to develop concept, iteration, and polish for playable prototypes.</p>
-        <p>> Focused on translating design goals into actionable systems and clear player communication.</p>
+        <!-- Skills Cards -->
+        <div class="grid-card">
+            <h3>Systems Design</h3>
+            <p>Designing feedback-rich systems that feel responsive and intuitive.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Game Feel</h3>
+            <p>Crafting tight controls, satisfying feedback, and meaningful player responses.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Player Feedback</h3>
+            <p>Balancing visual, audio, and mechanical cues across gameplay loops.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Prototyping</h3>
+            <p>Rapid experimentation in Unity, Unreal Engine, and GameMaker.</p>
+        </div>
+
+        <!-- Career Cards -->
+        <div class="grid-card">
+            <h3>Career Highlight 1</h3>
+            <p>Industry experience in designing gameplay systems, prototyping interaction loops, and refining player experience.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Career Highlight 2</h3>
+            <p>Worked with teams to develop concept, iteration, and polish for playable prototypes.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Career Highlight 3</h3>
+            <p>Focused on translating design goals into actionable systems and clear player communication.</p>
+        </div>
+
+        <!-- Games/Projects Cards -->
+        <div class="grid-card">
+            <h3>High-Rise</h3>
+            <p>GameMaker project exploring weapon-driven movement and interpretive systems.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Reel Rush</h3>
+            <p>Arcade-style prototype focused on pacing and feedback loops.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Hat-Free</h3>
+            <p>Experimental platformer investigating player control abstraction.</p>
+        </div>
+
+        <div class="grid-card">
+            <h3>Punch-In</h3>
+            <p>Combat system prototype emphasizing impact feedback and timing.</p>
+        </div>
+
     </div>
 
     <div class="footer">
@@ -273,16 +339,7 @@ h2 {
 </div>
 
 <script>
-function openTab(tabId, el) {
-    const contents = document.querySelectorAll('.content');
-    const tabs = document.querySelectorAll('.tab');
-
-    contents.forEach(c => c.classList.remove('active'));
-    tabs.forEach(t => t.classList.remove('active'));
-
-    document.getElementById(tabId).classList.add('active');
-    if (el) el.classList.add('active');
-}
+// Tab functionality removed - using grid layout instead
 </script>
 
 </body>
