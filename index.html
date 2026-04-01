@@ -28,8 +28,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 24px;
-    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('Assets/BackgroundImage.jpg') center/cover no-repeat;
-    background-attachment: fixed;
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('Assets/BackgroundImage.jpg') center/cover no-repeat fixed;
     color: var(--text);
 }
 
@@ -46,10 +45,9 @@ body {
 
 .hero .face {
     width: min(220px, 40vw);
-    height: min(220px, 40vw);
     max-width: 240px;
     border: 2px solid var(--accent);
-    border-radius: 50%;
+    border-radius: 12px;
     box-shadow: 0 0 18px rgba(0, 102, 204, 0.18);
     display: block;
     margin: 0 auto;
