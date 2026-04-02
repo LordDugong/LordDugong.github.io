@@ -505,12 +505,14 @@ const navIcons = document.querySelectorAll('.nav-icon');
 const totalSlides = document.querySelectorAll('.slide').length;
 
 function goToSlide(n) {
-    slides.style.transform = `translateX(-${n * 100}%)`;
+    // Loop the slide index using modulo arithmetic
+    const loopedSlide = ((n % totalSlides) + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${loopedSlide * 100}%)`;
     
     navIcons.forEach(icon => icon.classList.remove('active'));
-    navIcons[n].classList.add('active');
+    navIcons[loopedSlide].classList.add('active');
     
-    currentSlide = n;
+    currentSlide = loopedSlide;
 }
 
 navIcons.forEach((icon, index) => {
@@ -524,9 +526,9 @@ goToSlide(currentSlide);
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
-        goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        goToSlide(currentSlide - 1);
     } else if (e.key === 'ArrowRight') {
-        goToSlide((currentSlide + 1) % totalSlides);
+        goToSlide(currentSlide + 1);
     }
 });
 
@@ -546,10 +548,10 @@ document.addEventListener('touchend', (e) => {
 function handleSwipe() {
     if (touchStartX - touchEndX > 50) {
         // Swiped left
-        goToSlide((currentSlide + 1) % totalSlides);
+        goToSlide(currentSlide + 1);
     } else if (touchEndX - touchStartX > 50) {
         // Swiped right
-        goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        goToSlide(currentSlide - 1);
     }
 }
 
@@ -558,11 +560,11 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 prevBtn.addEventListener('click', () => {
-    goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+    goToSlide(currentSlide - 1);
 });
 
 nextBtn.addEventListener('click', () => {
-    goToSlide((currentSlide + 1) % totalSlides);
+    goToSlide(currentSlide + 1);
 });
 </script>
 
