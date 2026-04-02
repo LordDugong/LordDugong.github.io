@@ -158,6 +158,28 @@ body {
     border-radius: 10px;
 }
 
+/* About Me section specific layout */
+.about-me-section {
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.about-me-section .slide-right {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.about-me-section .slide-left {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.about-me-section .slide-right img {
+    max-width: 500px;
+}
+
 .slide h2 {
     color: var(--accent);
     font-size: 2rem;
@@ -293,7 +315,7 @@ body {
 
         <!-- Slide 1: About Me -->
         <div class="slide">
-            <div class="slide-content slide-two-column">
+            <div class="slide-content slide-two-column about-me-section">
                 <div class="slide-left">
                     <h2>About Me</h2>
                     <p>Placeholder text for about me section. This will contain information about my background, experience, and passion for game design. I'll mention Advanced higher computing science in how I made a game and gave me interest in systems design. I'll explain the game.</p>
