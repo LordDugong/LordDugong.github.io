@@ -247,28 +247,28 @@ body {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
-    background: var(--panel);
-    padding: 15px 25px;
-    border: 2px solid var(--accent);
-    border-radius: 50px;
-    box-shadow: 0 0 20px rgba(0, 102, 204, 0.15);
+    gap: 40px;
+    background: transparent;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
     z-index: 100;
 }
 
 .nav-icon {
-    width: 40px;
-    height: 40px;
-    border: none;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--accent);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 18px;
+    font-size: 24px;
     color: var(--accent);
-    background: rgba(0, 102, 204, 0.1);
+    background: transparent;
     font-weight: bold;
     user-select: none;
 }
@@ -281,6 +281,40 @@ body {
 .nav-icon.active {
     background: var(--accent);
     color: var(--panel);
+}
+
+/* Side navigation arrows */
+.nav-arrow {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 28px;
+    color: var(--accent);
+    background: transparent;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    z-index: 100;
+    user-select: none;
+}
+
+.nav-arrow:hover {
+    background: rgba(0, 102, 204, 0.1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-arrow.left {
+    left: 20px;
+}
+
+.nav-arrow.right {
+    right: 20px;
 }
 
 .footer {
@@ -447,6 +481,8 @@ body {
 </div>
 
 <!-- Bottom Navigation -->
+<div class="nav-arrow left" id="prevBtn">&#10094;</div>
+<div class="nav-arrow right" id="nextBtn">&#10095;</div>
 <div class="nav-bar" id="navBar">
     <div class="nav-icon" data-slide="0">A</div>
     <div class="nav-icon active" data-slide="1">H</div>
@@ -516,6 +552,18 @@ function handleSwipe() {
         goToSlide(Math.max(0, currentSlide - 1));
     }
 }
+
+// Arrow button navigation
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+prevBtn.addEventListener('click', () => {
+    goToSlide(Math.max(0, currentSlide - 1));
+});
+
+nextBtn.addEventListener('click', () => {
+    goToSlide(Math.min(totalSlides - 1, currentSlide + 1));
+});
 </script>
 
 </body>
