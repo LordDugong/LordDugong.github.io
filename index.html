@@ -63,9 +63,9 @@ body {
 .slide-content {
     width: 100%;
     height: 100%;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.5);
     border: none;
-    border-radius: 0;
+    border-radius: 8px;
     box-shadow: none;
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@ body {
 }
 
 .slide-hero h1 {
-    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-size: clamp(3rem, 8vw, 5rem);
     letter-spacing: 0.1em;
     color: var(--accent);
     margin-bottom: 30px;
@@ -110,6 +110,7 @@ body {
     width: 32px;
     opacity: 0.8;
     transition: opacity 0.2s ease, transform 0.2s ease;
+    filter: invert(1);
 }
 
 .social-links a:hover img {
@@ -129,6 +130,8 @@ body {
     max-width: 600px;
     line-height: 1.6;
     opacity: 0.9;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 /* About/Game slides */
@@ -182,14 +185,17 @@ body {
 
 .slide h2 {
     color: var(--accent);
-    font-size: 2rem;
+    font-size: 2.8rem;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .slide p {
     line-height: 1.6;
     margin-bottom: 15px;
     opacity: 0.9;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 /* Grid slides for skills/career */
@@ -223,6 +229,7 @@ body {
 .card p {
     font-size: 0.9rem;
     opacity: 0.85;
+    font-weight: bold;
 }
 
 /* Button styles */
@@ -269,7 +276,7 @@ body {
     padding: 10px 24px;
     background: rgba(0, 102, 204, 0.15);
     border: 2px solid var(--accent);
-    color: var(--accent);
+    color: #ffffff;
     text-decoration: none;
     border-radius: 8px;
     font-size: 0.95rem;
@@ -493,6 +500,68 @@ body {
     display: block;
 }
 
+/* Highrise scrollable section */
+.highrise-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.highrise-top {
+    flex-shrink: 0;
+    display: flex;
+    width: 100%;
+}
+
+.highrise-bottom {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+}
+
+.highrise-bottom::-webkit-scrollbar {
+    display: none;
+}
+
+.highrise-bottom > * {
+    margin-bottom: 30px;
+}
+
+.view-more-btn {
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, var(--accent) 0%, #0052a3 100%);
+    color: white;
+    border: 2px solid var(--accent);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: "Courier New", monospace;
+    letter-spacing: 0.05em;
+}
+
+.view-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.4);
+}
+
+.view-more-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-left: 8px;
+}
+
 @media (max-width: 768px) {
     .slide-two-column {
         flex-direction: column;
@@ -543,7 +612,7 @@ body {
                 </div>
                 <hr class="divider">
                 <p class="intro-text">Hello, and thanks for visiting my website! My name is Jamie, and I'm a passionate game designer who finds enjoyment in finding the fun and flow in digital experiences.</p>
-                <a href="https://lord-dugong.itch.io/high-rise-demo" class="cta-button">Check out my Honours Project!</a>
+                <a href="#" onclick="goToSlide(4); return false;" class="cta-button">Check out my Honours Project!</a>
             </div>
         </div>
 
@@ -574,8 +643,8 @@ body {
 
         <!-- Slide 4: High-Rise -->
         <div class="slide">
-            <div class="slide-content">
-                <div class="slide-two-column">
+            <div class="slide-content highrise-container">
+                <div class="highrise-top slide-two-column">
                     <div class="slide-right" style="flex: 1.2;">
                         <img src="Assets/High-Rise/High-Rise NoBackground.png" alt="High-Rise Logo" class="highrise-logo">
                     </div>
@@ -584,13 +653,14 @@ body {
                         <p>A practical study, along with a dissertation and development log for my final year at Abertay University.</p>
                         <p>Traverse each room, using the recoil of your shotgun to cross gaps. Enemies are 'stepping stones' first, adversaries second.</p>
                         <p><strong>CONTENT WARNINGS: FLASHING LIGHTS, CAMERA SHAKE</strong></p>
-                        <div class="video-dropdown">
-                            <button class="dropdown-btn" id="videoDropdown">View Gameplay <span class="arrow">▼</span></button>
-                            <div class="video-dropdown-content" id="videoContent">
-                                <iframe src="https://www.youtube.com/embed/YCTFczaspow" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                            </div>
-                        </div>
+                        <button class="view-more-btn" id="viewMoreBtn">View More <span class="arrow">▼</span></button>
                     </div>
+                </div>
+                <div class="highrise-bottom" id="highrisBottom">
+                    <div style="width: 100%; max-width: 560px;">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/YCTFczaspow" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: 8px;"></iframe>
+                    </div>
+                    <a href="https://lord-dugong.itch.io/high-rise-demo" class="link-button" style="font-size: 1.2rem; padding: 14px 32px;">Play on Itch.io</a>
                 </div>
             </div>
         </div>
@@ -724,14 +794,13 @@ nextBtn.addEventListener('click', () => {
     goToSlide(Math.min(totalSlides - 1, currentSlide + 1));
 });
 
-// High-Rise video dropdown functionality
-const videoDropdown = document.getElementById('videoDropdown');
-const videoContent = document.getElementById('videoContent');
+// High-Rise View More scroll functionality
+const viewMoreBtn = document.getElementById('viewMoreBtn');
+const highrisBottom = document.getElementById('highrisBottom');
 
-if (videoDropdown && videoContent) {
-    videoDropdown.addEventListener('click', () => {
-        videoContent.classList.toggle('active');
-        videoDropdown.classList.toggle('active');
+if (viewMoreBtn && highrisBottom) {
+    viewMoreBtn.addEventListener('click', () => {
+        highrisBottom.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 }
 </script>
