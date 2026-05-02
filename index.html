@@ -225,6 +225,36 @@ body {
     opacity: 0.85;
 }
 
+/* Button styles */
+.cta-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, var(--accent) 0%, #0052a3 100%);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+    font-family: "Courier New", monospace;
+}
+
+.cta-button:hover {
+    background: linear-gradient(135deg, #0052a3 0%, var(--accent) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+}
+
 /* Placeholder for media */
 .media-placeholder {
     width: 200px;
@@ -372,6 +402,7 @@ body {
                 </div>
                 <hr class="divider">
                 <p class="intro-text">Hello, and thanks for visiting my website! My name is Jamie, and I'm a passionate game designer who finds enjoyment in finding the fun and flow in digital experiences.</p>
+                <a href="https://lord-dugong.itch.io/high-rise-demo" class="cta-button">Check out my Honors Project!</a>
             </div>
         </div>
 
@@ -524,9 +555,9 @@ goToSlide(currentSlide);
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
-        goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        goToSlide(Math.max(0, currentSlide - 1));
     } else if (e.key === 'ArrowRight') {
-        goToSlide((currentSlide + 1) % totalSlides);
+        goToSlide(Math.min(totalSlides - 1, currentSlide + 1));
     }
 });
 
@@ -546,10 +577,10 @@ document.addEventListener('touchend', (e) => {
 function handleSwipe() {
     if (touchStartX - touchEndX > 50) {
         // Swiped left
-        goToSlide((currentSlide + 1) % totalSlides);
+        goToSlide(Math.min(totalSlides - 1, currentSlide + 1));
     } else if (touchEndX - touchStartX > 50) {
         // Swiped right
-        goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        goToSlide(Math.max(0, currentSlide - 1));
     }
 }
 
@@ -558,11 +589,11 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 prevBtn.addEventListener('click', () => {
-    goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+    goToSlide(Math.max(0, currentSlide - 1));
 });
 
 nextBtn.addEventListener('click', () => {
-    goToSlide((currentSlide + 1) % totalSlides);
+    goToSlide(Math.min(totalSlides - 1, currentSlide + 1));
 });
 </script>
 
