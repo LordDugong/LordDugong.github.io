@@ -7,11 +7,11 @@
 
 <style>
 :root {
-    --bg: #f5f5f7;
-    --panel: #ffffff;
-    --accent: #0066cc;
-    --text: #1a1a1a;
-    --tab: #f3f4f6;
+    --bg: #ffffff;
+    --panel: #f9f9fb;
+    --accent: #6b9eff;
+    --text: #ffffff;
+    --tab: #f0f0f2;
 }
 
 * {
@@ -29,7 +29,7 @@ html, body {
 }
 
 body {
-    background: url('Assets/PersonalPage/BackgroundImage.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('Assets/PersonalPage/BackgroundImage2.jpg') center/cover no-repeat;
     background-attachment: fixed;
     color: var(--text);
     overflow: hidden;
@@ -394,23 +394,27 @@ body {
 
 /* High-Rise specific styling */
 .highrise-logo {
-    max-width: 400px;
+    max-width: 800px;
     width: 100%;
+    border: none;
 }
 
 .highrise-text {
     line-height: 1.4;
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 .highrise-text h2 {
     margin-bottom: 15px;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
+    font-weight: bold;
 }
 
 .highrise-text p {
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 /* Futuristic dropdown button */
@@ -462,114 +466,30 @@ body {
     transform: rotate(180deg);
 }
 
-/* Video modal/tab */
-.video-modal {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--panel);
-    border: 3px solid var(--accent);
-    border-radius: 12px;
-    padding: 20px;
-    z-index: 1000;
-    box-shadow: 0 0 40px rgba(0, 102, 204, 0.4), inset 0 0 20px rgba(0, 102, 204, 0.1);
-    max-width: 90vw;
-    max-height: 90vh;
-    animation: slideDown 0.4s ease-out;
-}
-
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-}
-
-.video-modal.active {
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 10px;
-}
-
-.modal-header h3 {
-    color: var(--accent);
-    margin: 0;
-    font-size: 1.3rem;
-}
-
-.close-btn {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Courier New", monospace;
-    font-weight: bold;
-}
-
-.close-btn:hover {
-    background: linear-gradient(135deg, #ee5a5a 0%, #dd4a4a 100%);
-    transform: scale(1.1);
-}
-
-.modal-content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-}
-
-.modal-content iframe {
+/* Video dropdown */
+.video-dropdown {
+    margin-top: 25px;
     width: 100%;
-    height: 100%;
-    border: none;
+}
+
+.video-dropdown-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    border: 2px solid var(--accent);
     border-radius: 8px;
+    margin-top: 10px;
 }
 
-.video-backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
+.video-dropdown-content.active {
+    max-height: 500px;
+    transition: max-height 0.6s ease-in;
+}
+
+.video-dropdown-content iframe {
     width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 999;
-    animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.video-backdrop.active {
+    height: 400px;
+    border: none;
     display: block;
 }
 
@@ -657,14 +577,19 @@ body {
             <div class="slide-content">
                 <div class="slide-two-column">
                     <div class="slide-right" style="flex: 1.2;">
-                        <img src="Assets/High-Rise/High-Rise ItchLogo.png" alt="High-Rise Logo" class="highrise-logo">
+                        <img src="Assets/High-Rise/High-Rise NoBackground.png" alt="High-Rise Logo" class="highrise-logo">
                     </div>
                     <div class="slide-left highrise-text">
                         <h2>High-Rise</h2>
                         <p>A practical study, along with a dissertation and development log for my final year at Abertay University.</p>
                         <p>Traverse each room, using the recoil of your shotgun to cross gaps. Enemies are 'stepping stones' first, adversaries second.</p>
                         <p><strong>CONTENT WARNINGS: FLASHING LIGHTS, CAMERA SHAKE</strong></p>
-                        <button class="dropdown-btn" id="videoDropdown">View Gameplay <span class="arrow">▼</span></button>
+                        <div class="video-dropdown">
+                            <button class="dropdown-btn" id="videoDropdown">View Gameplay <span class="arrow">▼</span></button>
+                            <div class="video-dropdown-content" id="videoContent">
+                                <iframe src="https://www.youtube.com/embed/YCTFczaspow" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -726,18 +651,6 @@ body {
     <div class="nav-icon" data-slide="4">2</div>
     <div class="nav-icon" data-slide="5">3</div>
     <div class="nav-icon" data-slide="6">4</div>
-</div>
-
-<!-- Video Modal -->
-<div class="video-backdrop" id="videoBackdrop"></div>
-<div class="video-modal" id="videoModal">
-    <div class="modal-header">
-        <h3>High-Rise Gameplay</h3>
-        <button class="close-btn" id="closeVideoBtn">✕</button>
-    </div>
-    <div class="modal-content">
-        <iframe src="https://www.youtube.com/embed/YCTFczaspow" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
 </div>
 
 <div class="footer">
@@ -811,29 +724,14 @@ nextBtn.addEventListener('click', () => {
     goToSlide(Math.min(totalSlides - 1, currentSlide + 1));
 });
 
-// High-Rise video modal functionality
+// High-Rise video dropdown functionality
 const videoDropdown = document.getElementById('videoDropdown');
-const videoModal = document.getElementById('videoModal');
-const videoBackdrop = document.getElementById('videoBackdrop');
-const closeBtn = document.getElementById('closeVideoBtn');
+const videoContent = document.getElementById('videoContent');
 
-if (videoDropdown && videoModal && videoBackdrop && closeBtn) {
+if (videoDropdown && videoContent) {
     videoDropdown.addEventListener('click', () => {
-        videoModal.classList.add('active');
-        videoBackdrop.classList.add('active');
-        videoDropdown.classList.add('active');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        videoModal.classList.remove('active');
-        videoBackdrop.classList.remove('active');
-        videoDropdown.classList.remove('active');
-    });
-
-    videoBackdrop.addEventListener('click', () => {
-        videoModal.classList.remove('active');
-        videoBackdrop.classList.remove('active');
-        videoDropdown.classList.remove('active');
+        videoContent.classList.toggle('active');
+        videoDropdown.classList.toggle('active');
     });
 }
 </script>
