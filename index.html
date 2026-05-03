@@ -543,6 +543,12 @@ body {
     box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.2);
 }
 
+#highrise-anchor {
+    display: block;
+    height: 1px;
+    scroll-margin-top: 250px;
+}
+
 .highrise-banner__label {
     color: #ffffff;
     font-size: clamp(1.2rem, 2vw, 2rem);
@@ -725,7 +731,7 @@ body {
                 </div>
                 <hr class="divider">
                 <p class="intro-text">Hello, and thanks for visiting my website! My name is Jamie, and I'm a passionate game designer who finds enjoyment in finding the fun and flow in digital experiences.</p>
-                <a href="#highrise-content" class="cta-button">Check out my Honours Project!</a>
+                <a href="#highrise-anchor" class="cta-button">Check out my Honours Project!</a>
             </div>
         </div>
 
@@ -735,8 +741,9 @@ body {
                 <div class="highrise-banner">
                     <div class="highrise-banner__label">Developed by Jamie Fraser</div>
                 </div>
+                <div id="highrise-anchor"></div>
                 <div class="highrise-bottom" id="highrisBottom">
-                <div class="highrise-content" id="highrise-content">
+                <div class="highrise-content">
                         <div class="highrise-text">
                             <p>High-Rise was a practical study, along with a dissertation and development log for my final year at Abertay University.</p>
                             <p>Traverse each room, using the recoil of your shotgun to cross gaps.</p>
