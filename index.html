@@ -535,9 +535,10 @@ body {
     max-width: none;
     height: min(55vh, 500px);
     margin: 0 calc(-50vw + 50%);
-    background: url('Assets/High-Rise/High-Rise Banner 2.png') center/cover no-repeat;
+    background: url('Assets/High-Rise/High-Rise Banner.png') center/cover no-repeat;
     display: flex;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: 40px 20px 30px;
     box-shadow: inset 0 0 0 2000px rgba(0,0,0,0.2);
@@ -547,6 +548,18 @@ body {
     display: block;
     height: 1px;
     scroll-margin-top: 250px;
+}
+
+.highrise-banner__image {
+    max-width: 98%;
+    max-height: 90%;
+    height: auto;
+    width: auto;
+    margin-bottom: 12px;
+    object-fit: contain;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .highrise-banner__label {
@@ -866,6 +879,7 @@ body {
         <div class="slide" id="highrise">
             <div class="slide-content highrise-container">
                 <div class="highrise-banner">
+                    <img src="Assets/High-Rise/High-Rise NoBackground.png" alt="High-Rise" class="highrise-banner__image">
                     <div class="highrise-banner__label">Developed by Jamie Fraser</div>
                 </div>
                 <div id="highrise-anchor"></div>
@@ -957,7 +971,7 @@ body {
             <div class="slide-content slide-two-column about-me-section">
                 <div class="slide-left">
                     <h2>About Me</h2>
-                    <p>Placeholder text for about me section. This will contain information about my background, experience, and passion for game design. I'll mention Advanced higher computing science in how I made a game and gave me interest in systems design. I'll explain the game.</p>
+                    <p>Placeholder text for about me section. This will contain information about my background, experience, and passion for game design. Placeholder</p>
                     <p>I'm dedicated to creating engaging gaming experiences through thoughtful systems design and player-focused feedback.</p>
                 </div>
                 <div class="slide-right">
