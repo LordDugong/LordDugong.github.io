@@ -535,7 +535,7 @@ body {
     max-width: none;
     height: min(55vh, 500px);
     margin: 0 calc(-50vw + 50%);
-    background: url('Assets/High-Rise/High-Rise Banner.png') center/cover no-repeat;
+    background: url('Assets/High-Rise/High-Rise Banner 2.png') center/cover no-repeat;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -670,6 +670,53 @@ body {
     margin-right: auto;
 }
 @media (max-width: 768px) {
+    /* Top bar mobile adjustments */
+    .top-bar {
+        height: 70px;
+        padding-left: 15px;
+    }
+    
+    .top-bar__content {
+        font-size: 1.4rem;
+        letter-spacing: 0.08em;
+    }
+    
+    .top-bar__nav {
+        gap: 15px;
+        padding-right: 15px;
+    }
+    
+    .top-bar__nav-link {
+        font-size: 0.9rem;
+        display: none;
+    }
+    
+    .top-bar__itch-buttons {
+        flex-direction: column;
+        gap: 8px !important;
+        opacity: 0 !important;
+    }
+    
+    .top-bar__social {
+        gap: 8px !important;
+        opacity: 0 !important;
+    }
+    
+    /* Carousel adjustments */
+    .carousel {
+        padding-top: 70px;
+    }
+    
+    .slide {
+        padding: 60px 15px;
+        min-height: auto;
+    }
+    
+    .slide-content {
+        padding: 20px;
+    }
+    
+    /* Two column to single column */
     .slide-two-column {
         flex-direction: column;
         gap: 20px;
@@ -679,8 +726,88 @@ body {
         width: 100%;
     }
     
-    .slide-content {
-        padding: 20px;
+    /* High-Rise specific mobile styles */
+    .highrise-banner {
+        height: min(40vh, 300px);
+    }
+    
+    .highrise-banner__label {
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+    }
+    
+    .highrise-content {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+    
+    .highrise-text {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        order: -1;
+    }
+    
+    .highrise-text h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .highrise-text p {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    
+    .highrise-video-section {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .highrise-video-section p {
+        font-size: 0.95rem;
+        margin-bottom: 10px;
+    }
+    
+    .highrise-video-section iframe {
+        height: auto;
+        min-height: 250px;
+    }
+    
+    .highrise-bottom p {
+        font-size: 1.1rem;
+    }
+    
+    .highrise-bottom {
+        padding: 20px 15px;
+    }
+    
+    /* Navigation adjustments */
+    .nav-bar {
+        display: none;
+    }
+    
+    /* Slide hero */
+    .slide-hero h1 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+    
+    .hero-face {
+        width: min(150px, 30vw);
+    }
+    
+    .intro-text {
+        font-size: 1.1rem;
+    }
+    
+    /* General text adjustments */
+    .slide h2 {
+        font-size: 2rem;
+    }
+    
+    .slide p {
+        font-size: 1rem;
     }
 }
 </style>
