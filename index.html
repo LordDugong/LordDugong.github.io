@@ -59,7 +59,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 20px 20px;
     scroll-margin-top: 120px;
 }
 
@@ -172,6 +172,18 @@ body {
     align-items: flex-start;
 }
 
+.about-me-section h2 {
+    font-size: 4rem;
+}
+
+.about-me-section p {
+    font-size: 1.6rem !important;
+}
+
+.about-me-section .slide-right img {
+    max-width: 350px !important;
+}
+
 .about-me-section .slide-right {
     grid-column: 1;
     grid-row: 1;
@@ -180,10 +192,6 @@ body {
 .about-me-section .slide-left {
     grid-column: 2;
     grid-row: 1;
-}
-
-.about-me-section .slide-right img {
-    max-width: 500px;
 }
 
 .slide h2 {
@@ -851,7 +859,6 @@ body {
                 <img src="Assets/PersonalPage/linkedin.png" alt="LinkedIn">
             </a>
         </div>
-        <a href="#skills" class="top-bar__nav-link">Skills</a>
         <a href="#about" class="top-bar__nav-link">About Me</a>
     </div>
 </div>
@@ -882,15 +889,15 @@ body {
             <div class="slide-content highrise-container">
                 <div class="highrise-banner">
                     <img src="Assets/High-Rise/High-Rise NoBackground.png" alt="High-Rise" class="highrise-banner__image">
-                    <div class="highrise-banner__label">Developed by Jamie Fraser</div>
+                    <div class="highrise-banner__label">Solo Development</div>
                 </div>
                 <div id="highrise-anchor"></div>
                 <div class="highrise-bottom" id="highrisBottom">
                 <div class="highrise-content">
                         <div class="highrise-text">
                             <p>High-Rise was a practical study, along with a dissertation and development log for my final year at Abertay University.</p>
+                            <p>"Weapons-4-Movement: Analysing Game Feel Design with Altnerative Locomotion Mechanics."</p>
                             <p>Traverse each room, using the recoil of your shotgun to cross gaps.</p>
-                            <p>Enemies are 'stepping stones' first, adversaries second.</p>
                         </div>
                         <div class="highrise-video-section">
                             <iframe src="https://www.youtube.com/embed/YCTFczaspow" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -972,38 +979,14 @@ body {
             </div>
         </div>
 
-        <!-- Skills -->
-        <div class="slide" id="skills">
-            <div class="slide-content">
-                <h2>Skills</h2>
-                <div class="slide-grid">
-                    <div class="card">
-                        <h3>Systems Design</h3>
-                        <p>Feedback-rich systems that feel responsive and intuitive.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Game Feel</h3>
-                        <p>Tight controls, satisfying feedback, and meaningful responses.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Player Feedback</h3>
-                        <p>Balancing visual, audio, and mechanical cues.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Prototyping</h3>
-                        <p>ffmmfdfsf blah blah.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- About Me -->
         <div class="slide" id="about">
             <div class="slide-content slide-two-column about-me-section">
                 <div class="slide-left">
                     <h2>About Me</h2>
-                    <p>Placeholder text for about me section. This will contain information about my background, experience, and passion for game design. Placeholder</p>
-                    <p>I'm dedicated to creating engaging gaming experiences through thoughtful systems design and player-focused feedback.</p>
+                    <p>From making humble Scratch games in primary school, to now developing professional gameplay experiences, I've been passionate about creating (and playing) games for over half my life.</p>
+                    <p>Currently, I'm continuing to develop my final University project into something commercial that I can be proud of.</p>
+                    <p>When I'm not making games, I'm playing games. I also have a deep fascination with animal documentaries, talking about games with friends, or creating digital art.</p>
                 </div>
                 <div class="slide-right">
                     <img src="Assets/PersonalPage/Face.jpg" alt="Jamie Fraser">
@@ -1018,6 +1001,18 @@ body {
 <div class="footer">
     © 2026 Jamie Fraser
 </div>
+
+<style>
+.footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    z-index: 100;
+}
+</style>
 
 <script>
 const topBar = document.getElementById('topBar');
