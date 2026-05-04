@@ -59,7 +59,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 80px 20px;
+    padding: 40px 20px;
     scroll-margin-top: 120px;
 }
 
@@ -666,10 +666,12 @@ body {
     margin-bottom: 15px;
 }
 
-.highrise-video-section iframe {
+.highrise-video-section iframe,
+.highrise-video-section img {
     width: 100%;
     max-width: 1300px;
-    height: min(50vh, 420px);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
     border-radius: 16px;
     border: none;
 }
@@ -894,49 +896,78 @@ body {
                             <iframe src="https://www.youtube.com/embed/YCTFczaspow" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
-                    <a href="https://lord-dugong.itch.io/high-rise-demo" class="link-button">Play on Itch.io</a>
+                    <a href="https://lord-dugong.itch.io/high-rise-demo" class="link-button">Download from Itch.io</a>
                 </div>
             </div>
         </div>
 
         <!-- Reel Rush -->
         <div class="slide" id="reel-rush">
-            <div class="slide-content slide-two-column">
-                <div class="slide-left">
-                    <h2>Reel Rush</h2>
-                    <p>Arcade placeholder.</p>
-                    <p>Placeholder for video/gif will appear here once media assets are added.</p>
+            <div class="slide-content highrise-container">
+                <div class="highrise-banner" style="background: url('Assets/Reel Rush/Reel Rush Banner.png') center/cover no-repeat;">
+                    <img src="Assets/Reel Rush/Reel Rush LogoNoBackground.png" alt="Reel Rush" class="highrise-banner__image">
+                    <div class="highrise-banner__label">Lead Design, Production, and Animation</div>
                 </div>
-                <div class="slide-right">
-                    <div class="media-placeholder">Video/GIF Placeholder</div>
+                <div id="reelrush-anchor"></div>
+                <div class="highrise-bottom">
+                    <div class="highrise-content">
+                        <div class="highrise-text">
+                            <p>Reel Rush was a 3-week game jam project, based around saltwater fishing and inspired by the sights and fauna of the waters around the River Tay and Fife Coastline.</p>
+                            <p>The game was made to be playable during the Dundee Hooley and was designed to be easily accessible, as it was an outdoor arcade game.</p>
+                            <p>The goal is to catch as many fish as you can, and to build up huge combos.</p>
+                        </div>
+                        <div class="highrise-video-section">
+                            <img src="Assets/Reel Rush/ss3.png" alt="Reel Rush Gameplay">
+                        </div>
+                    </div>
+                    <a href="https://betatwo.itch.io/reel" class="link-button">Play on Itch.io</a>
                 </div>
             </div>
         </div>
 
         <!-- Hat-Free -->
         <div class="slide" id="hat-free">
-            <div class="slide-content slide-two-column">
-                <div class="slide-left">
-                    <h2>Hat-Free</h2>
-                    <p>Placeholder simulator game</p>
-                    <p>Placeholder for video/gif will appear here once media assets are added.</p>
+            <div class="slide-content highrise-container">
+                <div class="highrise-banner" style="background: url('Assets/Hat-Free/Hat-Free Banner.png') center/cover no-repeat;">
+                    <img src="Assets/Hat-Free/Hat-Free LogoNoBackground.png" alt="Hat-Free" class="highrise-banner__image">
+                    <div class="highrise-banner__label">Lead Design, Production, and UI</div>
                 </div>
-                <div class="slide-right">
-                    <div class="media-placeholder">Video/GIF Placeholder</div>
+                <div id="hatfree-anchor"></div>
+                <div class="highrise-bottom">
+                    <div class="highrise-content">
+                        <div class="highrise-text">
+                            <p>Hat-Free was a 3-week game jam project, designed as a single-player visual novel set in Britain during the 1970s.</p>
+                            <p>You play as a single woman who has chosen to be 'hat-free', instead opting to focus on her social life and a job she enjoys.</p>
+                            <p>She faces scrutiny from this from her old-fashioned family. Made for the 'WE ARE CHILDFREE' movement, to spread awareness about the stigma of adults who choose to not have children.</p>
+                        </div>
+                        <div class="highrise-video-section">
+                            <img src="Assets/Hat-Free/ss1.png" alt="Hat-Free Gameplay">
+                        </div>
+                    </div>
+                    <a href="https://betatwo.itch.io/hat-free" class="link-button">Play on Itch.io</a>
                 </div>
             </div>
         </div>
 
-        <!-- Punch-In -->
+        <!-- Punch In -->
         <div class="slide" id="punch-in">
-            <div class="slide-content slide-two-column">
-                <div class="slide-left">
-                    <h2>Punch-In</h2>
-                    <p>Placeholder sim game</p>
-                    <p>Placeholder for video/gif will appear here once media assets are added.</p>
+            <div class="slide-content highrise-container">
+                <div class="highrise-banner" style="background: url('Assets/Punch-In/Punch In Banner.png') center/cover no-repeat;">
+                    <img src="Assets/Punch-In/Punch In LogoNoBackground.png" alt="Punch-In" class="highrise-banner__image">
+                    <div class="highrise-banner__label">Producer, Design</div>
                 </div>
-                <div class="slide-right">
-                    <div class="media-placeholder">Video/GIF Placeholder</div>
+                <div id="punchin-anchor"></div>
+                <div class="highrise-bottom">
+                    <div class="highrise-content">
+                        <div class="highrise-text">
+                            <p>A single-player casual decision-making game, where the player, a young male university student, must get through their work week while maintaining their mental health.</p>
+                            <p>Throughout the week, the player must balance their finances and mental health which may increase or decrease based on your choices.</p>
+                        </div>
+                        <div class="highrise-video-section">
+                            <img src="Assets/Punch-In/ss3.png" alt="Punch-In Gameplay">
+                        </div>
+                    </div>
+                    <a href="https://betatwo.itch.io/punch-in" class="link-button">Play on Itch.io</a>
                 </div>
             </div>
         </div>
