@@ -692,6 +692,30 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+.highrise-showcase {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+    flex-wrap: wrap;
+}
+.highrise-showcase img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    object-fit: cover;
+}
+.highrise-award {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    margin: 20px auto;
+}
 @media (max-width: 768px) {
     /* Top bar mobile adjustments */
     .top-bar {
@@ -832,6 +856,15 @@ body {
     .slide p {
         font-size: 1rem;
     }
+    
+    .highrise-showcase {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .highrise-showcase img {
+        max-width: 100%;
+    }
 }
 </style>
 </head>
@@ -855,7 +888,7 @@ body {
             <a href="#" class="top-bar__social-link" title="GitHub">
                 <img src="Assets/PersonalPage/github.png" alt="GitHub">
             </a>
-            <a href="#" class="top-bar__social-link" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/jamie-fraser-38a6bb3a4/" class="top-bar__social-link" title="LinkedIn" target="_blank">
                 <img src="Assets/PersonalPage/linkedin.png" alt="LinkedIn">
             </a>
         </div>
@@ -872,7 +905,7 @@ body {
                 <div class="social-links">
                     <a href="mailto:jamie.b.fraser04@gmail.com"><img src="Assets/PersonalPage/email.png" alt="Email"></a>
                     <a href="#"><img src="Assets/PersonalPage/github.png" alt="GitHub"></a>
-                    <a href="#"><img src="Assets/PersonalPage/linkedin.png" alt="LinkedIn"></a>
+                    <a href="https://www.linkedin.com/in/jamie-fraser-38a6bb3a4/" target="_blank"><img src="Assets/PersonalPage/linkedin.png" alt="LinkedIn"></a>
                 </div>
                 <div class="link-buttons">
                     <a href="Assets/PersonalPage/Jamie Fraser 2026 CV.pdf" class="link-button">Personal CV</a>
@@ -906,6 +939,11 @@ body {
                             <iframe src="https://www.youtube.com/embed/YCTFczaspow" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                         </div>
                     </div>
+                    <div class="highrise-showcase">
+                        <img src="Assets/High-Rise/Showcase1.jpg" alt="High-Rise Showcase 1">
+                        <img src="Assets/High-Rise/Showcase2.jpg" alt="High-Rise Showcase 2">
+                    </div>
+                    <p class="highrise-award">High-Rise was short-listed into the top three projects for the Game and System Design award at the Abertay Digital Graduate Show!</p>
                     <a href="https://lord-dugong.itch.io/high-rise-demo" class="link-button">Download from Itch.io</a>
                 </div>
             </div>
